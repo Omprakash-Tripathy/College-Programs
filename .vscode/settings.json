@@ -3,6 +3,7 @@
         "stdio.h": "c",
         "2-Q3.C": "cpp",
         "Q10-561.C": "cpp",
-        "EX1-561.C": "cpp"
+        "EX1-561.C": "cpp",
+        "istream": "cpp"
     }
 }

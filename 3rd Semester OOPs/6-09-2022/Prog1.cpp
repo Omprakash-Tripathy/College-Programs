@@ -1,34 +1,30 @@
-#include <iostream.h>
+#include <iostream>
 #include <string.h>
-#include <conio.h>
-class Constructor
+using namespace std;
+
+class Concatenate
 {
 private:
     char *result;
 
 public:
-    Constructor(char *S1, char *S2)
+    Concatenate(char *S1, char *S2)
     {
+        result = new char[strlen(S1) + strlen(S2) + 1];
         strcpy(result, S1);
+        strcat(result, " ");
         strcat(result, S2);
     }
     void Display()
     {
-        cout << "\n\n\t\t\t The Result is : " << result;
+        cout << "The Result is : " << result;
     }
 };
-void main()
+int main()
 {
-    char *Str1, *Str2;
-    clrscr();
-    cout << "\n\n\t\t********************************************************";
-    cout << "\n\n\t\t\t String Concatenate Using Dynamic Constructors";
-    cout << "\n\n\t\t********************************************************";
-    cout << "\n\n\t\t\t Enter the String 1 : ";
-    cin >> Str1;
-    cout << "\n\n\t\t\t Enter the String 2 : ";
-    cin >> Str2;
-    Constructor C(Str1, Str2);
+    char str1[] = "KIIT";
+    char str2[] = "UNIVERSITY";
+    Concatenate C(str1, str2);
     C.Display();
-    getch();
+    return 0;
 }
