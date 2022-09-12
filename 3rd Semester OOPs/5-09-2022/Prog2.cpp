@@ -15,7 +15,7 @@ public:
     friend void swap(A &, B &);
     void output()
     {
-        cout<<x;
+        cout<<"The data member of class A is: "<<x<<endl;
     }
 };
 
@@ -30,7 +30,7 @@ public:
     friend void swap(A &, B &);
     void output()
     {
-        cout<<y;
+        cout<<"The data member of class B is: "<<y<<endl;
     }
 };
 

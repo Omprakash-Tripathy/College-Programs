@@ -1,3 +1,5 @@
+//create two classes which stores distance in feet,inches and meter, centimeter format respectively. Write a function
+//which compares distance in object of these classes and displays the larger one.
 #include <iostream>
 using namespace std;
 class d2;

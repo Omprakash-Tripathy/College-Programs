@@ -1,5 +1,5 @@
 //Create a class which stores name, author and price ofa book. Store information for n
-//number of books. Display information of all the books in a given price range usmg
+//number of books. Display information of all the books in a given price range using
 //friend function.
 
 #include<iostream>
