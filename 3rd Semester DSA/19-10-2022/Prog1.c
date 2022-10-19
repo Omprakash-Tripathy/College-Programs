@@ -8,6 +8,22 @@
 int queue[MAX];
 int front = -1, rear = -1;
 
+int isEmpty()
+{
+    if(front == -1 || front > rear)
+        return 1;
+    else
+        return 0;
+}
+
+int isFull()
+{
+    if(rear == MAX - 1)
+        return 1;
+    else
+        return 0;
+}
+
 void enqueue(int item)
 {
     if(isFull())
@@ -42,22 +58,6 @@ int peek()
         exit(1);
     }
     return queue[front];
-}
-
-int isEmpty()
-{
-    if(front == -1 || front > rear)
-        return 1;
-    else
-        return 0;
-}
-
-int isFull()
-{
-    if(rear == MAX - 1)
-        return 1;
-    else
-        return 0;
 }
 
 void display()
