@@ -1,4 +1,4 @@
-//WAP to reverse a stack using an extra stack
+// WAP to reverse a stack using an extra stack
 
 #include <stdio.h>
 #include <stdlib.h>

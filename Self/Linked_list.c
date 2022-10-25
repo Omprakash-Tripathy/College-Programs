@@ -56,30 +56,74 @@ struct node* InsertAtIndex(struct node* head, int data, int index)
     return head;
 }
 
-struct node* InsertAfterIndex(struct node* head, int data, struct node* prevNode)
+struct node* InsertAfterNode(struct node* head, int data, struct node* prevNode)
 {
-    
+    struct node* ptr = (struct node*) malloc(sizeof(struct node));
+    ptr->data = data;
+    ptr->next = prevNode->next;
+    prevNode->next = ptr;
 }
 
 int main()
 {
-    struct node* head = (struct node *) malloc(sizeof(struct node));
-    struct node* second = (struct node *) malloc(sizeof(struct node));
-    struct node* third = (struct node *) malloc(sizeof(struct node));
-    struct node* fourth = (struct node *) malloc(sizeof(struct node));
+    //HARDCODE INPUT MYSELF
 
-    head->data = 61;
-    head->next = second;
 
-    second->data = 88;
-    second->next = third;
+    // struct node* head = (struct node *) malloc(sizeof(struct node));
+    // struct node* second = (struct node *) malloc(sizeof(struct node));
+    // struct node* third = (struct node *) malloc(sizeof(struct node));
+    // struct node* fourth = (struct node *) malloc(sizeof(struct node));
 
-    third->data = 16;
-    third->next = fourth;
+    // head->data = 61;
+    // head->next = second;
 
-    fourth->data = 88;
-    fourth->next= NULL;
+    // second->data = 88;
+    // second->next = third;
+
+    // third->data = 16;
+    // third->next = fourth;
+
+    // fourth->data = 88;
+    // fourth->next= NULL;
+
+    // linkedListTraversal(head);
+    // InsertAfterNode(head, 56, second);
+    // InsertAtEnd(head, 71);
+    // head = InsertAtFirst(head, 87);
+    // InsertAtIndex(head, 99, 2);
+    // printf("Re-do : \n");
+    // linkedListTraversal(head);
+    // return 0;
+
+
+
+
+
+
+
+    //TAKE INPUT FROM USER
+
+
+    int n ;
+    printf("Enter no of nodes = ");
+    scanf("%d", &n);
+    struct node* head = (struct node*)malloc (sizeof (struct node));
+    printf("Enter the data of first node " );
+    scanf("%d", &head->data);
+    struct node* temp = head;
+
+    for(int i=1;i<n;i++)
+    {
+        struct node *newnode = (struct node*)malloc(sizeof(struct node));
+        printf("enter the data");
+        scanf("%d", &newnode->data);
+        temp->next = newnode;
+        temp = newnode;
+    }
+    temp->next= NULL;
 
     linkedListTraversal(head);
+
     return 0;
+
 }
