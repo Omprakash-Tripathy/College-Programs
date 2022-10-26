@@ -12,6 +12,14 @@ struct node
 
 struct node *front = NULL, *rear = NULL;
 
+int isEmpty()
+{
+    if(front == NULL)
+        return 1;
+    else
+        return 0;
+}
+
 void enqueue(int item)
 {
     struct node *newNode;
@@ -51,14 +59,6 @@ int peek()
     return front->data;
 }
 
-int isEmpty()
-{
-    if(front == NULL)
-        return 1;
-    else
-        return 0;
-}
-
 void display()
 {
     struct node *temp;
@@ -82,12 +82,12 @@ int main()
     int choice, item;
     while(1)
     {
-        printf("1.Enqueue");
-        printf("2.Dequeue");
-        printf("3.Peek");
-        printf("4.Display");
-        printf("5.Quit");
-        printf("Enter your choice : ");
+        printf("\n1.Enqueue \n");
+        printf("2.Dequeue \n");
+        printf("3.Peek \n");
+        printf("4.Display \n");
+        printf("5.Quit \n");
+        printf("Enter your choice : \n");
         scanf("%d", &choice);
         switch(choice)
         {

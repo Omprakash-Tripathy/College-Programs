@@ -7,6 +7,22 @@
 int queue[MAX];
 int front = -1, rear = -1;
 
+int isEmpty()
+{
+    if(front == -1 || front > rear)
+        return 1;
+    else
+        return 0;
+}
+
+int isFull()
+{
+    if(rear == MAX - 1)
+        return 1;
+    else
+        return 0;
+}
+
 void enqueue(int item)
 {
     if(isFull())
@@ -43,22 +59,6 @@ int peek()
     return queue[front];
 }
 
-int isEmpty()
-{
-    if(front == -1 || front > rear)
-        return 1;
-    else
-        return 0;
-}
-
-int isFull()
-{
-    if(rear == MAX - 1)
-        return 1;
-    else
-        return 0;
-}
-
 void reverseQueue()
 {
     int stack[MAX];
@@ -73,6 +73,7 @@ void reverseQueue()
         enqueue(stack[top]);
         top--;
     }
+    display();
 }
 
 void display()
@@ -99,26 +100,26 @@ int main()
     int choice,item;
     while(1)
     {
-        printf("1.Enqueue");
+        printf("\n1.Enqueue \n");
 
-        printf("2.Dequeue");
+        printf("2.Dequeue \n");
 
-        printf("3.Display the front element");
+        printf("3.Display the front element \n");
 
-        printf("4.Display all queue elements");
+        printf("4.Display all queue elements \n");
 
-        printf("5.Reverse the queue");
+        printf("5.Reverse the queue \n");
 
-        printf("6.Quit");
+        printf("6.Quit \n");
 
-        printf("Enter your choice : ");
+        printf("Enter your choice : \n");
 
         scanf("%d",&choice);
 
         switch(choice)
         {
         case 1:
-            printf("Input the element for adding in queue : ");
+            printf("Input the element for adding in queue : \n");
 
             scanf("%d",&item);
 
