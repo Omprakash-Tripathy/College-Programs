@@ -136,19 +136,20 @@ int main()
     struct node *temp;
     while (true)
     {
-        printf("Binary Search Tree Menu");
-        printf("----------------------------------------");
-        printf("0. Quit");
-        printf("1. Create");
-        printf("2. In-Order Traversal");
-        printf("3. Pre-Order Traversal");
-        printf("4. Post-Order traversal");
-        printf("5. Search");
-        printf("6. Find Smallest Element");
-        printf("7. Find Largest Element");
-        printf("8. Deletion of Tree");
-        printf("----------------------------------------");
-        printf("Enter your choice: ");
+        printf("\n----------------------------------------");
+        printf("\nBinary Search Tree Menu");
+        printf("\n----------------------------------------");
+        printf("\n0. Quit");
+        printf("\n1. Create");
+        printf("\n2. In-Order Traversal");
+        printf("\n3. Pre-Order Traversal");
+        printf("\n4. Post-Order traversal");
+        printf("\n5. Search");
+        printf("\n6. Find Smallest Element");
+        printf("\n7. Find Largest Element");
+        printf("\n8. Deletion of Tree");
+        printf("\n----------------------------------------");
+        printf("\nEnter your choice: ");
         scanf("%d", &choice);
         switch (choice)
         {
