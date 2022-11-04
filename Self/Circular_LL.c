@@ -7,22 +7,23 @@ struct node
     struct node *next;
 };
 
-void linkedListTraversal(struct node *head)
+void LinkedListTraversal(struct node *head)
 {
     struct node *ptr = head;
     do
     {
-        printf("The data is : %d", ptr->data);
+        printf("\nThe data is : %d", ptr->data);
         ptr = ptr->next;
-    } while (ptr->next != head);
+    } while (ptr != head);
 }
 
-struct node *insertAtFirst(struct node *head, int data)
+struct node *InsertAtFirst(struct node *head)
 {
     struct node *ptr = (struct node *)malloc(sizeof(struct node));
-    ptr->data = data;
+    printf("Enter the data of the node : ");
+    scanf("%d", &ptr->data);
 
-    struct node *p = head->next;
+    struct node *p = head;
     while (p->next != head)
     {
         p = p->next;
@@ -30,8 +31,7 @@ struct node *insertAtFirst(struct node *head, int data)
 
     p->next = ptr;
     ptr->next = head;
-    head = ptr;
-    return head;
+    return ptr;
 }
 
 int main()
@@ -52,4 +52,8 @@ int main()
 
     fourth->data = 71;
     fourth->next = head;
+
+    LinkedListTraversal(head);
+    head = InsertAtFirst(head);
+    LinkedListTraversal(head);
 }
