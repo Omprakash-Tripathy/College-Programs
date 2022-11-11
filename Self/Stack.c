@@ -93,7 +93,7 @@ void display(struct stack *s)
     {
         for (int j = 0; j<=s->top; j++)
         {
-            printf("The value at position %d is %d", j, s->arr[j]);
+            printf("\nThe value at position %d is %d", j, s->arr[j]);
         }
     }
 }
@@ -101,6 +101,7 @@ void display(struct stack *s)
 int main()
 {
     struct stack *s;
+    s = (struct stack *) malloc(sizeof(struct stack));
     printf("Enter the size of stack : ");
     scanf("%d", &s->size);
     s->top = -1;
@@ -120,9 +121,6 @@ int main()
 
     int peeked = peek(s,10);
     printf("\nThe element you want to peek is : %d", peeked);
-    for (int j = 1; j <= s->top + 1; j++)
-    {
-        printf("\nThe value at position %d is %d", j, peek(s, j));
-    }
+    display(s);
     return 0;
 }
