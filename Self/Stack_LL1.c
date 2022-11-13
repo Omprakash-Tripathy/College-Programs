@@ -61,7 +61,6 @@ void pop()
     {
         temp = top;
         top = top->next;
-        temp->next = NULL;
         free(temp);
     }
 }
@@ -69,7 +68,7 @@ void pop()
 void display()
 {
     struct node *temp;
-    if(top == NULL)
+    if(isEmpty)
     {
         printf("Stack is empty");
     }
