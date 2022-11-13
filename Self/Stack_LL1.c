@@ -10,52 +10,58 @@ struct node
 
 struct node *top = NULL;
 
-void isEmpty()
+int isEmpty()
 {
     if(top == NULL)
     {
-        printf("Stack is empty");
+        return 1;
     }
     else
     {
-        printf("Stack is not empty");
+        return 0;
     }
 }
 
-void isFull()
+int isFull()
 {
-    struct node *n = (struct node *)malloc(sizeof(struct node)); 
+    struct node *n = (struct node *)malloc(sizeof(struct node));
     if(n == NULL)
     {
-        printf("Stack is full");
-
+        return 1;
     }
     else
     {
-        printf("Stack is not full");
+        return 0;
     }
 }
 
 void push(int x)
 {
-    struct node *newnode;
-    newnode = (struct node*)malloc(sizeof(struct node));
-    newnode->data = x;
-    newnode->next = top;
-    top = newnode;
+    if(isFull())
+    {
+        printf("Stack Overflow");
+    }
+    else
+    {
+        struct node *n = (struct node *)malloc(sizeof(struct node));
+        n->data = x;
+        n->next = top;
+        top = n;
+    }
 }
 
 void pop()
 {
     struct node *temp;
-    if(top == NULL)
+    if(isEmpty())
     {
-        printf("Stack is empty");
+        printf("Stack Underflow");
     }
     else
     {
         temp = top;
         top = top->next;
+        temp->next = NULL;
         free(temp);
     }
 }
