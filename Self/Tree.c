@@ -47,23 +47,6 @@ void postOrder(struct node *root)
     }
 }
 
-// int isBST(struct  node* root){
-//     static struct node *prev = NULL;
-//     if(root!=NULL){
-//         if(!isBST(root->left)){
-//             return 0;
-//         }
-//         if(prev!=NULL && root->data <= prev->data){
-//             return 0;
-//         }
-//         prev = root;
-//         return isBST(root->right);
-//     }
-//     else{
-//         return 1;
-//     }
-// }
-
 int isBST(struct node *root)
 {
     static struct node *prev = NULL;
@@ -86,20 +69,25 @@ int isBST(struct node *root)
     }
 }
 
-// struct node * search(struct node* root, int key){
-//     if(root==NULL){
-//         return NULL;
-//     }
-//     if(key==root->data){
-//         return root;
-//     }
-//     else if(key<root->data){
-//         return search(root->left, key);
-//     }
-//     else{
-//         return search(root->right, key);
-//     }
-// }
+struct node *search(struct node *root, int key)
+{
+    if (root == NULL)
+    {
+        return NULL;
+    }
+    if (key == root->data)
+    {
+        return root;
+    }
+    else if (key < root->data)
+    {
+        return search(root->left, key);
+    }
+    else
+    {
+        return search(root->right, key);
+    }
+}
 
 int main()
 {
@@ -125,10 +113,12 @@ int main()
 
     printf("\n");
     printf("%d", isBST(p));
-    if(isBST(p)){
+    if (isBST(p))
+    {
         printf("\nThis tree is a BST");
     }
-    else{
+    else
+    {
         printf("\nThis tree is not a BST");
     }
     return 0;
