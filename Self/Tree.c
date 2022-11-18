@@ -47,21 +47,45 @@ void postOrder(struct node *root)
     }
 }
 
-int isBST(struct node *root)
+// int isBST(struct node *root)
+// {
+//     static struct node *prev = NULL;
+//     if (root != NULL)
+//     {
+//         if (!isBST(root->left))
+//         {
+//             return 0;
+//         }
+//         if (prev != NULL && root->data <= prev->data)
+//         {
+//             return 0;
+//         }
+//         prev = root;
+//         return isBST(root->right);
+//     }
+//     else
+//     {
+//         return 1;
+//     }
+// }
+
+int isBST(struct node* root)
 {
-    static struct node *prev = NULL;
-    if (root != NULL)
+    if(root == NULL)
     {
-        if (!isBST(root->left))
-        {
-            return 0;
-        }
-        if (prev != NULL && root->data <= prev->data)
-        {
-            return 0;
-        }
-        prev = root;
-        return isBST(root->right);
+        return 1;
+    }
+    if(root->left != NULL && root->left->data >= root->data)
+    {
+        return 0;
+    }
+    if(root->right != NULL && root->right->data <= root->data)
+    {
+        return 0;
+    }
+    if(!isBST(root->left) || !isBST(root->right))
+    {
+        return 0;
     }
     else
     {
@@ -91,11 +115,11 @@ struct node *search(struct node *root, int key)
 
 int main()
 {
-    struct node *p = createNode(88);
-    struct node *p1 = createNode(61);
-    struct node *p2 = createNode(37);
-    struct node *p3 = createNode(23);
-    struct node *p4 = createNode(76);
+    struct node *p = createNode(5);
+    struct node *p1 = createNode(3);
+    struct node *p2 = createNode(6);
+    struct node *p3 = createNode(1);
+    struct node *p4 = createNode(4);
 
     p->left = p1;
     p->right = p2;
@@ -111,8 +135,8 @@ int main()
     printf("PostOrder : ");
     postOrder(p);
 
-    printf("\n");
-    printf("%d", isBST(p));
+    // printf("\n");
+    // printf("%d", isBST(p));
     if (isBST(p))
     {
         printf("\nThis tree is a BST");
@@ -121,5 +145,17 @@ int main()
     {
         printf("\nThis tree is not a BST");
     }
+
+    printf("\n");
+    struct node *n = search(p, 10);
+    if (n != NULL)
+    {
+        printf("Found: %d", n->data);
+    }
+    else
+    {
+        printf("Element not found");
+    }
+
     return 0;
 }
