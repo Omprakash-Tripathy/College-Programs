@@ -113,51 +113,91 @@ struct node *search(struct node *root, int key)
     }
 }
 
+// struct node *insert(struct node *root, int key)
+// {
+//     if (root == NULL)
+//     {
+//         struct node *ptr = (struct node *)malloc(sizeof(struct node));
+//         ptr->data = key;
+//         ptr->left = NULL;
+//         ptr->right = NULL;
+//         return ptr;
+//     }
+//     if (key == root->data)
+//     {
+//         return root;
+//     }
+//     if (key < root->data)
+//     {
+//         root->left = insert(root->left, key);
+//     }
+//     if (key > root->data)
+//     {
+//         root->right = insert(root->right, key);
+//     }
+//     return root;
+// }
+
 struct node *insert(struct node *root, int key)
 {
     if (root == NULL)
     {
-        // printf("Inserting");
-        struct node *root = (struct node *)malloc(sizeof(struct node));
-        root->data = key;
-        root->left = NULL;
-        root->right = NULL;
-        // printf("%d ", root);
+        root = createNode(key);
         return root;
     }
-
-    // printf("%d ", root->data);
-    // else if (key == root->data)
-    // {
-    //     return root;
-    // }
+    if (key > root->data)
+    {
+        root->right = insert(root->right, key);
+    }
     if (key < root->data)
     {
-        // printf("Left\n");
-        insert(root->left, key);
-        // printf("\nRoot Left : %d", root->left->data);
+        root->left = insert(root->left, key);
     }
-    if (key >= root->data)
-    {
-        // printf("Right %d\n", root->right);
-        insert(root->right, key);
-        // printf("\nRoot Right : %d", root->right->data);
-        // printf("%d", root->right);
-    }
+    return root;
 }
 
-// void insert(struct node ** root, int data){
-//     if (! (*root)){
-//         *root = (struct node *)malloc(sizeof(struct node));
-//         (*root)->data = data;
-//         (*root)->left = (*root)->right = NULL;
-//         return;
-//     }
-//     else if (data >= (*root)->data)
-//         insert(&((*root)->right), data);
-//     else if (data < (*root)->data)
-//         insert(&((*root)->left), data);
-// }
+struct node *inOrderPredecessor(struct node *root)
+{
+    root = root->left;
+    while (root->right != NULL)
+    {
+        root = root->right;
+    }
+    return root;
+} 
+
+struct node *deleteNode(struct node *root, int value)
+{
+
+    struct node *iPre;
+    if (root == NULL)
+    {
+        return NULL;
+    }
+    if (root->left == NULL && root->right == NULL)
+    {
+        free(root);
+        return NULL;
+    }
+
+    // searching for the node to be deleted
+    if (value < root->data)
+    {
+        root->left = deleteNode(root->left, value);
+    }
+    else if (value > root->data)
+    {
+        root->right = deleteNode(root->right, value);
+    }
+    // deletion strategy when the node is found
+    else
+    {
+        iPre = inOrderPredecessor(root);
+        root->data = iPre->data;
+        root->left = deleteNode(root->left, iPre->data);
+    }
+    return root;
+}
 
 int main()
 {
@@ -200,9 +240,11 @@ int main()
     {
         printf("Element not found");
     }
-    p = insert(p, 7);
+
+    p = insert(p, 87);
 
     printf("\nInOrder : ");
     inOrder(p);
+
     return 0;
 }
