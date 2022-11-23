@@ -8,30 +8,60 @@ struct node
     struct node *right;
 };
 
-void preorder(struct node *root)
+struct node *newNode(char data)
 {
-    if (root == NULL)
+    struct node *node = (struct node *)malloc(sizeof(struct node));
+    node->data = data;
+    node->left = NULL;
+    node->right = NULL;
+
+    return (node);
+}
+
+void preorder(struct node *node)
+{
+    if (node == NULL)
     {
         return;
     }
-    printf("%c ", root->data);
-    preorder(root->left);
-    preorder(root->right);
+    printf("%c ", node->data);
+    preorder(node->left);
+    preorder(node->right);
 }
 
-void inorder(struct node *root)
+void inorder(struct node *node)
 {
-    if (root == NULL)
+    if (node == NULL)
     {
         return;
     }
-    inorder(root->left);
-    printf("%c ", root->data);
-    inorder(root->right);
+    inorder(node->left);
+    printf("%c ", node->data);
+    inorder(node->right);
 }
 
-int search(char arr[], int strt, int end, char value);
-struct node *newNode(char data);
+void postorder(struct node* node)
+{
+    if(node == NULL)
+    {
+        return;
+    }
+    postorder(node->right);
+    postorder(node->left);
+    printf("%c ", node->data);
+}
+
+int search(char arr[], int strt, int end, char value)
+{
+    int i;
+    for (i = strt; i <= end; i++)
+    {
+        if (arr[i] == value)
+        {
+            return i;
+        }
+    }
+}
 
 struct node *buildTree(char in[], char pre[], int inStrt, int inEnd)
 {
@@ -55,46 +85,12 @@ struct node *buildTree(char in[], char pre[], int inStrt, int inEnd)
     return tNode;
 }
 
-int search(char arr[], int strt, int end, char value)
-{
-    int i;
-    for (i = strt; i <= end; i++)
-    {
-        if (arr[i] == value)
-        {
-            return i;
-        }
-    }
-}
-
-struct node *newNode(char data)
-{
-    struct node *node = (struct node *)malloc(sizeof(struct node));
-    node->data = data;
-    node->left = NULL;
-    node->right = NULL;
-
-    return (node);
-}
-
-void printInorder(struct node *node)
-{
-    if (node == NULL)
-    {
-        return;
-    }
-    printInorder(node->left);
-    printf("%c ", node->data);
-    printInorder(node->right);
-}
-
 int main()
 {
-    char in[] = {'D', 'B', 'E', 'A', 'F', 'C'};
-    char pre[] = {'A', 'B', 'D', 'E', 'C', 'F'};
+    char in[] = {'D', 'H', 'B', 'E', 'A', 'I', 'F', 'C', 'J', 'G', 'K'};
+    char pre[] = {'A', 'B', 'D', 'H', 'E', 'C', 'F', 'I', 'G', 'J', 'K'};
     int len = sizeof(in) / sizeof(in[0]);
     struct node *root = buildTree(in, pre, 0, len - 1);
-    printf("Inorder traversal of the constructed tree is \n");
-    printInorder(root);
-    getchar();
+    printf("Postorder traversal of the constructed tree is \n");
+    postorder(root);
 }
