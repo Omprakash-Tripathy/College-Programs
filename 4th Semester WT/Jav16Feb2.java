@@ -1,5 +1,5 @@
 import java.util.*;
-class Jav16Feb1
+class Jav16Feb2
 {
 public static void  main(String[] args)
     {
