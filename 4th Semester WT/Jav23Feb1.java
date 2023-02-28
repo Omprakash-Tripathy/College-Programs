@@ -1,22 +1,23 @@
-//1.WAP in java to create a class Animal having following features: name, type andtwo member functions in() to input the details and out() for printing the details.
-//Create three objects having name lion, dog and cow and their respective eating type as carnivore, omnivore and herbivore and print the details.
+//1.WAP in java to create a class Animal having following features: name, type and two member functions in() to input
+//the details and out() for printing the details. Create three objects having name lion, dog and cow and their 
+//respective eating type as carnivore, omnivore and herbivore and print the details.
 
 public class Jav23Feb1
 {
     public static void main(String[] args)
     {
-        animal tiger = new animal();
+        animal lion = new animal();
         animal dog = new animal();
-        animal goat = new animal();
-        tiger.input("tiger", "carnivore");
+        animal cow = new animal();
+        lion.input("lion", "carnivore");
         dog.input("dog", "omnivore");
-        goat.input("goat", "herbivore");
+        cow.input("cow", "herbivore");
 
-        tiger.output();
+        lion.output();
         System.out.println();
         dog.output();
         System.out.println();
-        goat.output();
+        cow.output();
     }
 }
 

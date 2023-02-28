@@ -1,5 +1,5 @@
-// WAP to Create a class Employee with data members empid, name and salary. Use inp() to take the input of the employee and use disp() to print the employee
-// details. Create 3 objects of employees and display their details.
+// WAP to Create a class Employee with data members empid, name and salary. Use inp() to take the input of the 
+//employee and use disp() to print the employee details. Create 3 objects of employees and display their details.
 import java.util.Scanner;
 
 public class Jav23Feb3
@@ -13,7 +13,7 @@ public class Jav23Feb3
         e1.inp(sc);
         // e2.inp(sc);
         // e3.inp(sc);
-        e1.desp();
+        e1.disp();
         // e2.desp();
         // e3.desp();
 
@@ -43,7 +43,7 @@ class employee
         sc.close();
     }
 
-    public void desp()
+    public void disp()
     {
         System.out.println("employee id : " + this.empid);
         System.out.println("employee name : " + this.name);
