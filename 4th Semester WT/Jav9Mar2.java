@@ -5,31 +5,31 @@ import java.util.*;
 
 class Jav9Mar2
 {
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        Scanner sc = new Scanner(System.in);
-        int a[][] = new int[5][];
-        int i,j;
-        int k=2;
-        for(i=0;i<5;i++)
+        int arr[][] = new int[5][];
+        arr[0] = new int[3];
+        arr[1] = new int[2];
+        arr[2] = new int[1];
+        arr[3] = new int[2];
+        arr[4] = new int[3];
+
+        int even = 0;
+        for (int i = 0; i < arr.length; i++)
         {
-            a[i] = new int[k];
-            k++;
-        }
-        System.out.println("Enter the elements of the array");
-        for(i=0;i<5;i++)
-        {
-            for(j=0;j<a[i].length;j++)
+            for (int j = 0; j < arr[i].length; j++)
             {
-                a[i][j] = sc.nextInt();
+                arr[i][j] = even;
+                even = even + 2;
             }
         }
-        System.out.println("The elements of the array are");
-        for(i=0;i<5;i++)
+
+        System.out.println("Contents of 2D Jagged Array");
+        for (int i = 0; i < arr.length; i++)
         {
-            for(j=0;j<a[i].length;j++)
+            for (int j = 0; j < arr[i].length; j++)
             {
-                System.out.print(a[i][j]+" ");
+                System.out.print(arr[i][j] + " ");
             }
             System.out.println();
         }

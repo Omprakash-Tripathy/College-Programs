@@ -4,6 +4,15 @@ import java.util.*;
 
 class Jav9Mar3
 {
+    public static double area(int r)
+    {
+        return 3.14*r*r;
+    }
+    public static int area(int l,int b)
+    {
+        return l*b;
+    }
+    
     public static void main(String args[])
     {
         Scanner sc = new Scanner(System.in);
@@ -14,13 +23,5 @@ class Jav9Mar3
         int b = sc.nextInt();
         System.out.println("The area of the circle is "+area(r));
         System.out.println("The area of the rectangle is "+area(l,b));
-    }
-    public static double area(int r)
-    {
-        return 3.14*r*r;
-    }
-    public static int area(int l,int b)
-    {
-        return l*b;
     }
 }

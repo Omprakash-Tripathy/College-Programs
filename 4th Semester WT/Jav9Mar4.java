@@ -20,6 +20,12 @@ class Perim
         this.l=l;
         this.b=b;
     }
+    Perim(int r, int l, int b)
+    {
+        this.r=r;
+        this.l=l;
+        this.b=b;
+    }
     public void display()
     {
         System.out.println("The perimeter of the circle is "+(2*3.14*r));
@@ -40,8 +46,10 @@ class Jav9Mar4
         Perim p1 = new Perim();
         Perim p2 = new Perim(r);
         Perim p3 = new Perim(l,b);
+        Perim p4 = new Perim(r,l,b);
         p1.display();
         p2.display();
         p3.display();
+        p4.display();
     }
 }

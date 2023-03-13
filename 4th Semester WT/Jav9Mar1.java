@@ -35,13 +35,13 @@ class Jav9Mar1
                 {
                     sum1 = sum1 + a[i][j];
                 }
-                if(i+j==2-1)
+                if(i+j==1) // array length - 1 => 2-1 = 1
                 {
                     sum2 = sum2 + a[i][j];
                 }
             }
         }
-        System.out.println("The sum of left diagonal is "+sum1);
-        System.out.println("The sum of right diagonal is "+sum2);
+        System.out.println("The sum of left diagonal is " + sum1);
+        System.out.println("The sum of right diagonal is " + sum2);
     }
 }
