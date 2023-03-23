@@ -1,4 +1,4 @@
-//Write a program in java to define a class Shape which has data member „area‟ and a member function showArea().
+//Write a program in java to define a class Shape which has data member area and a member function showArea().
 //Derive two classes Circle and Rectangle from Shape class. Add appropriate data members and member functions to
 //calculate and display the area of Circle and Rectangle.
 
@@ -44,10 +44,16 @@ public class Jav23Mar4
 {
     public static void main(String[] args)
     {
-        Circle c = new Circle(5);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the radius of the circle");
+        int i = sc.nextInt();
+        Circle c = new Circle(i);
         c.calcArea();
         c.showArea();
-        Rectangle r = new Rectangle(5, 10);
+        System.out.println("Enter the length and bredth of the rectangle");
+        int l = sc.nextInt();
+        int b = sc.nextInt();
+        Rectangle r = new Rectangle(l, b);
         r.calcArea();
         r.showArea();
     }

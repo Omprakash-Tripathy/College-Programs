@@ -14,7 +14,6 @@ class Account
         System.out.println("Enter the account number and balance");
         acc_no = sc.nextInt();
         balance = sc.nextDouble();
-        sc.close();
     }
     void disp()
     {
@@ -34,7 +33,6 @@ class Person extends Account
         System.out.println("Enter the name and aadhar number");
         name = sc.nextLine();
         aadhar_no = sc.nextInt();
-        sc.close();
     }
     void disp()
     {

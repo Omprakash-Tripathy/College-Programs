@@ -15,7 +15,6 @@ class Plastic
         l = sc.nextInt();
         b = sc.nextInt();
         h = sc.nextInt();
-        sc.close();
     }
 }
 
@@ -31,6 +30,18 @@ class Sheet extends Plastic
     }
 }
 
+class Box extends Plastic
+{
+    void cal()
+    {
+        cost = l*b*h*60;
+    }
+    void display()
+    {
+        System.out.println("The cost of box is Rs "+cost);
+    }
+}
+
 public class Jav23Mar1
 {
     public static void main(String[] args)
@@ -39,5 +50,10 @@ public class Jav23Mar1
         s.getdata();
         s.cal();
         s.display();
+
+        Box b = new Box();
+        b.getdata();
+        b.cal();
+        b.display();
     }
 }
