@@ -11,7 +11,7 @@ class Plastic
     void getdata()
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the length, breadth and height of the plastic");
+        System.out.println("Enter the dimensions of the plastic");
         l = sc.nextInt();
         b = sc.nextInt();
         h = sc.nextInt();
